@@ -13,5 +13,6 @@
     <modules>
         <module>ibuy-msf4j</module>
         <module>ibuy-spring-boot</module>
+        <module>ibuy-msstack</module>
     </modules>
 </project>
