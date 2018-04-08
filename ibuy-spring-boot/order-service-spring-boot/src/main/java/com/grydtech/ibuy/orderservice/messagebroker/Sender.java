@@ -15,12 +15,9 @@ import java.util.concurrent.TimeUnit;
 public class Sender {
 
     private static ObjectMapper objectMapper;
-    private static ExecutorService executorService;
 
     static {
         objectMapper = new ObjectMapper();
-        executorService = new ThreadPoolExecutor(5, 10, 5000,
-                TimeUnit.MILLISECONDS, new LinkedBlockingDeque<>());
     }
 
     private KafkaTemplate<String, String> kafkaTemplate;
@@ -31,6 +28,10 @@ public class Sender {
     }
 
     public void send(String topic, Object payload) {
-            executorService.submit(() -> kafkaTemplate.send(topic, objectMapper.writeValueAsString(payload)));
+        try {
+            kafkaTemplate.send(topic, objectMapper.writeValueAsString(payload));
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+        }
     }
 }
