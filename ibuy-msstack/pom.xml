@@ -46,8 +46,8 @@
 
     <repositories>
         <repository>
-            <id>msstack-mvn-repo</id>
-            <url>https://raw.github.com/randilfernando/sample-maven-repo/master</url>
+            <id>msstack-artifacts</id>
+            <url>https://raw.github.com/msstack/msstack-artifacts/master</url>
             <snapshots>
                 <enabled>true</enabled>
                 <updatePolicy>always</updatePolicy>
