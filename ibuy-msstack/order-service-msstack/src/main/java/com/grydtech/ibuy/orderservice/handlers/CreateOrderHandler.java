@@ -14,11 +14,6 @@ public class CreateOrderHandler implements CommandHandler<OrderCreateRequest, Ge
     
     public GenericResponse handle(OrderCreateRequest orderCreateRequest) {
         new OrderCreatedEvent(orderCreateRequest.getCustomerId()).emit();
-        try {
-            Thread.sleep(100);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
         return new GenericResponse(200, "success");
     }
 

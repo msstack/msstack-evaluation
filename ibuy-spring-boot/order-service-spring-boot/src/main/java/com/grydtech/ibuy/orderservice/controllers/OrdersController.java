@@ -25,11 +25,6 @@ public class OrdersController {
     public GenericResponse createOrder(CreateOrderRequest createOrderRequest) {
         OrderCreatedEvent orderCreatedEvent = new OrderCreatedEvent(createOrderRequest.getCustomerId());
         sender.send("order-created-event", orderCreatedEvent);
-        try {
-            Thread.sleep(100);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
         return new GenericResponse(200, "success");
     }
 }

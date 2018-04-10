@@ -19,11 +19,6 @@ public class CreateOrderHandler {
     @Produces(MediaType.APPLICATION_JSON)
     public GenericResponse handle(OrderCreateRequest orderCreateRequest) {
         OrderCreatedEvent orderCreatedEvent = new OrderCreatedEvent(orderCreateRequest.getCustomerId());
-        try {
-            Thread.sleep(100);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
         return new GenericResponse(200, "success");
     }
 
