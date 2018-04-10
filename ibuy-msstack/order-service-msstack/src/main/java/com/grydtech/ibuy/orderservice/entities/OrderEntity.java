@@ -1,8 +1,6 @@
 package com.grydtech.ibuy.orderservice.entities;
 
 import com.grydtech.ibuy.orderservice.events.OrderCreatedEvent;
-import com.grydtech.ibuy.orderservice.events.OrderFinalizedEvent;
-import com.grydtech.ibuy.orderservice.events.OrderItemAddedEvent;
 
 import java.util.List;
 
@@ -30,13 +28,5 @@ public class OrderEntity {
 
     public void apply(OrderCreatedEvent orderCreatedEvent) {
         // add OrderCreatedEvent based logic here
-    }
-
-    public void apply(OrderItemAddedEvent orderItemAddedEvent) {
-        // add ItemAddedEvent based logic here
-    }
-
-    public void apply(OrderFinalizedEvent orderFinalizedEvent) {
-        // add OrderFinalizedEvent based logic here
     }
 }
