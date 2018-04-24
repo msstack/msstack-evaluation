@@ -15,7 +15,7 @@
     </modules>
 
     <properties>
-        <msstack.version>1.0</msstack.version>
+        <msstack.version>1.0-SNAPSHOT</msstack.version>
         <java.version>1.8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -46,11 +46,13 @@
 
     <repositories>
         <repository>
-            <id>msstack-artifacts</id>
-            <url>https://raw.github.com/msstack/msstack-artifacts/master</url>
+            <id>msstack-msstack-artifacts</id>
+            <url>https://packagecloud.io/msstack/msstack-artifacts/maven2</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
             <snapshots>
                 <enabled>true</enabled>
-                <updatePolicy>always</updatePolicy>
             </snapshots>
         </repository>
     </repositories>
