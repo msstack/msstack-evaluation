@@ -1,9 +1,7 @@
 package com.grydtech.ibuy.orderservice.responses;
 
+public class GenericResponse {
 
-import com.grydtech.msstack.core.Response;
-
-public class GenericResponse extends Response {
     private Integer status;
     private String message;
 
