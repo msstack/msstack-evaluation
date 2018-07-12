@@ -1,6 +1,7 @@
 package com.grydtech.ibuy.orderservice.entities;
 
 public class ItemEntity {
+
     private String itemCode;
     private String name;
     private Integer quantity;
@@ -26,6 +27,5 @@ public class ItemEntity {
     public Double getPrice() {
         return price;
     }
-
 
 }

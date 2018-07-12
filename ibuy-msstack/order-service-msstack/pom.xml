@@ -16,15 +16,15 @@
 
     <dependencies>
         <dependency>
-            <groupId>com.grydtech.msstack.microservices</groupId>
-            <artifactId>jersey</artifactId>
-            <version>1.0</version>
+            <groupId>com.grydtech.msstack.request</groupId>
+            <artifactId>netty</artifactId>
+            <version>${msstack.version}</version>
         </dependency>
 
         <dependency>
             <groupId>com.grydtech.msstack.transport</groupId>
             <artifactId>kafka</artifactId>
-            <version>1.0</version>
+            <version>${msstack.version}</version>
         </dependency>
     </dependencies>
 

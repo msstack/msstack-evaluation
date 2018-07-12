@@ -1,10 +1,9 @@
 package com.grydtech.ibuy.orderservice.entities;
 
-import com.grydtech.ibuy.orderservice.events.OrderCreatedEvent;
-
 import java.util.List;
 
 public class OrderEntity {
+
     private String orderId;
     private String customerId;
     private Double payment;
@@ -26,7 +25,4 @@ public class OrderEntity {
         return items;
     }
 
-    public void apply(OrderCreatedEvent orderCreatedEvent) {
-        // add OrderCreatedEvent based logic here
-    }
 }
