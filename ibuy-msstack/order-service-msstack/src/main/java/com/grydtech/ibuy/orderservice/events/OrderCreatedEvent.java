@@ -9,6 +9,8 @@ public class OrderCreatedEvent extends BasicEvent {
     private String orderId;
     private String customerId;
 
+    private OrderCreatedEvent() {}
+
     public OrderCreatedEvent(String customerId) {
         this.customerId = customerId;
     }
