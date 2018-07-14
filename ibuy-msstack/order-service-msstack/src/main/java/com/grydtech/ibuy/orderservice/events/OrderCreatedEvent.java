@@ -1,8 +1,10 @@
 package com.grydtech.ibuy.orderservice.events;
 
-import com.grydtech.msstack.core.Event;
+import com.grydtech.msstack.core.BasicEvent;
+import com.grydtech.msstack.core.annotation.Event;
 
-public class OrderCreatedEvent extends Event {
+@Event(stream = "orders")
+public class OrderCreatedEvent extends BasicEvent {
 
     private String orderId;
     private String customerId;
