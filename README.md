@@ -5,23 +5,26 @@ Evaluate performance different micro services frameworks
 1. wso2 msf4j
 1. spring-boot
 
-## How to compile
-run `mvn clean package` and it will create an executable jar file inside target directory
+### Throughput
+- MSstack  
+![Throughput - MSstack](https://raw.githubusercontent.com/msstack/msstack-evaluation/master/results/throughput/msstack.png)
+- Spring Boot v2  
+![Throughput - Spring Boot v2](https://raw.githubusercontent.com/msstack/msstack-evaluation/master/results/throughput/spring-boot.png)
+- WSO2 MSF4J  
+![Throughput - WSO2 MSF4J](https://raw.githubusercontent.com/msstack/msstack-evaluation/master/results/throughput/msf4j.png)
 
-## How to run
-### Start zookeeper and kafka
-1. Download [apache kafka](https://kafka.apache.org/downloads)
-2. Start a ZooKeeper server. Kafka has a single node Zookeeper configuration built-in.
-```bash
-bin/zookeeper-server-start.sh config/zookeeper.properties
-```
-3. Start kafka
-```bash
-bin/kafka-server-start.sh config/server.properties
-```
-4. Create required topics (order-created, item-added, order-finalized)
-```bash
-bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic order-created-event
-bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic order-item-added-event
-bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic order-finalized-event
-```
+### Latency
+- MSstack  
+![Latency - MSstack](https://raw.githubusercontent.com/msstack/msstack-evaluation/master/results/latency/msstack.png)
+- Spring Boot v2  
+![Latency - Spring Boot v2](https://raw.githubusercontent.com/msstack/msstack-evaluation/master/results/latency/spring-boot.png)
+- WSO2 MSF4J  
+![Latency - WSO2 MSF4J](https://raw.githubusercontent.com/msstack/msstack-evaluation/master/results/latency/msf4j.png)
+
+### Memory and CPU consumption
+- MSstack  
+![Memory and CPU - MSstack](https://raw.githubusercontent.com/msstack/msstack-evaluation/master/results/cpu-memory/msstack.png)
+- Spring Boot v2  
+![Memory and CPU - Spring Boot v2](https://raw.githubusercontent.com/msstack/msstack-evaluation/master/results/cpu-memory/spring-boot.png)
+- WSO2 MSF4J  
+![Memory and CPU - WSO2 MSF4J](https://raw.githubusercontent.com/msstack/msstack-evaluation/master/results/cpu-memory/msf4j.png)
