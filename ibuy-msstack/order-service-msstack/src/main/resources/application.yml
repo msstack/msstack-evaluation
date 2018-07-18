@@ -1,0 +1,9 @@
+server:
+  id: "order-service-001"
+  group: "orders-service"
+  port: 8080
+broker:
+  bootstrap: "localhost:9092"
+  retries: 10
+  acks: "all"
+  interval: 100
