@@ -7,10 +7,10 @@ import com.grydtech.msstack.core.handler.CommandHandler;
 
 import javax.ws.rs.Path;
 
-@Path("/orders")
+@Path("/order/create-order")
 public class CreateOrderHandler implements CommandHandler<OrderCreateRequest, GenericResponse> {
 
-    @Path("/create")
+    @Path("")
     public GenericResponse handle(OrderCreateRequest orderCreateRequest) {
         new OrderCreatedEvent("CR001", orderCreateRequest.getCustomerId()).emit();
         return new GenericResponse(200, "success");

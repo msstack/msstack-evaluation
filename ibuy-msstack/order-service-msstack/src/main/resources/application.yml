@@ -1,8 +1,10 @@
 server:
-  id: "order-service-001"
-  group: "orders-service"
-  port: 8080
-broker:
+  id: "order-service-1"
+  name: "order-service"
+  port: 8081
+serviceRegistry:
+  bootstrap: "localhost:2181"
+messageBroker:
   bootstrap: "localhost:9092"
   retries: 10
   acks: "all"
