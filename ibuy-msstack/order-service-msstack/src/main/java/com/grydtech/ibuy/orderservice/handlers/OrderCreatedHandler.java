@@ -6,6 +6,6 @@ import com.grydtech.msstack.core.handler.EventHandler;
 public class OrderCreatedHandler implements EventHandler<OrderCreatedEvent> {
     @Override
     public void handle(OrderCreatedEvent event) {
-        System.out.println("Order created with id: " + event.getOrderId());
+        System.out.println("Order created event received with id: " + event.getOrderId());
     }
 }

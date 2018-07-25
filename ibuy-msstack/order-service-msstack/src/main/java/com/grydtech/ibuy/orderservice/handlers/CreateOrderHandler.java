@@ -13,6 +13,7 @@ public class CreateOrderHandler implements CommandHandler<OrderCreateRequest, Ge
     @Path("")
     public GenericResponse handle(OrderCreateRequest orderCreateRequest) {
         new OrderCreatedEvent("CR001", orderCreateRequest.getCustomerId()).emit();
+        System.out.println("Order created with id: CR001");
         return new GenericResponse(200, "success");
     }
 

@@ -1,11 +1,12 @@
 server:
   id: "order-service-1"
   name: "order-service"
-  port: 8081
+  host: "127.0.0.1"
+  port: 8080
 serviceRegistry:
-  bootstrap: "localhost:2181"
+  bootstrap: "139.59.77.98:2181"
 messageBroker:
-  bootstrap: "localhost:9092"
+  bootstrap: "139.59.77.98:9092"
   retries: 10
   acks: "all"
   interval: 100
