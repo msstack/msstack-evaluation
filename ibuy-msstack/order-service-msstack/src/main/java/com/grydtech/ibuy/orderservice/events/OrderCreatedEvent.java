@@ -10,6 +10,9 @@ public class OrderCreatedEvent extends Event<OrderEntity> {
     private String orderId;
     private String customerId;
 
+    public OrderCreatedEvent() {
+    }
+
     public OrderCreatedEvent(String orderId, String customerId) {
         this.orderId = orderId;
         this.customerId = customerId;

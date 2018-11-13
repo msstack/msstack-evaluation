@@ -10,6 +10,9 @@ public class OrderAcceptedResponse extends Response<OrderEntity> {
     private Integer status;
     private String message;
 
+    public OrderAcceptedResponse() {
+    }
+
     public OrderAcceptedResponse(String orderId, Integer status, String message) {
         this.orderId = orderId;
         this.status = status;

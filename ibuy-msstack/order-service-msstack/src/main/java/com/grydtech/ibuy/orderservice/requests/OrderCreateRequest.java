@@ -9,6 +9,14 @@ public class OrderCreateRequest extends Command<OrderEntity> {
     private String orderId;
     private String customerId;
 
+    public OrderCreateRequest() {
+    }
+
+    public OrderCreateRequest(String orderId, String customerId) {
+        this.orderId = orderId;
+        this.customerId = customerId;
+    }
+
     public String getOrderId() {
         return orderId;
     }
