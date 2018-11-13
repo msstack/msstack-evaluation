@@ -1,19 +1,14 @@
 package com.grydtech.ibuy.orderservice.events;
 
-import com.grydtech.msstack.core.BasicEvent;
-import com.grydtech.msstack.core.annotation.Event;
+import com.grydtech.ibuy.orderservice.entities.OrderEntity;
+import com.grydtech.msstack.core.types.messaging.Event;
 
-@Event(stream = "orders")
-public class OrderCreatedEvent extends BasicEvent {
+import java.util.UUID;
+
+public class OrderCreatedEvent extends Event<OrderEntity> {
 
     private String orderId;
     private String customerId;
-
-    private OrderCreatedEvent() {}
-
-    public OrderCreatedEvent(String customerId) {
-        this.customerId = customerId;
-    }
 
     public OrderCreatedEvent(String orderId, String customerId) {
         this.orderId = orderId;
@@ -26,5 +21,15 @@ public class OrderCreatedEvent extends BasicEvent {
 
     public String getOrderId() {
         return orderId;
+    }
+
+    @Override
+    public UUID getEntityId() {
+        return UUID.fromString(orderId);
+    }
+
+    @Override
+    public Class<OrderEntity> getEntityClass() {
+        return OrderEntity.class;
     }
 }

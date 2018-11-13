@@ -1,20 +1,22 @@
 package com.grydtech.ibuy.orderservice.handlers;
 
+import com.grydtech.ibuy.orderservice.entities.OrderEntity;
 import com.grydtech.ibuy.orderservice.events.OrderCreatedEvent;
 import com.grydtech.ibuy.orderservice.requests.OrderCreateRequest;
-import com.grydtech.ibuy.orderservice.responses.GenericResponse;
+import com.grydtech.ibuy.orderservice.responses.OrderAcceptedResponse;
 import com.grydtech.msstack.core.handler.CommandHandler;
 
-import javax.ws.rs.Path;
+import java.util.Map;
+import java.util.UUID;
 
-@Path("/order/create-order")
-public class CreateOrderHandler implements CommandHandler<OrderCreateRequest, GenericResponse> {
+@SuppressWarnings("unused")
+public class CreateOrderHandler implements CommandHandler<OrderEntity, OrderCreateRequest> {
 
-    @Path("")
-    public GenericResponse handle(OrderCreateRequest orderCreateRequest) {
-        new OrderCreatedEvent("CR001", orderCreateRequest.getCustomerId()).emit();
-        System.out.println("Order created with id: CR001");
-        return new GenericResponse(200, "success");
+    @Override
+    public void handle(OrderCreateRequest orderCreateRequest, Map map, UUID uuid, OrderEntity orderEntity) {
+        // add logic before order created event
+        OrderCreatedEvent orderCreatedEvent = new OrderCreatedEvent(orderCreateRequest.getOrderId(), orderCreateRequest.getCustomerId());
+        orderCreatedEvent.emit(uuid);
+        // add logic after order created event
     }
-
 }
