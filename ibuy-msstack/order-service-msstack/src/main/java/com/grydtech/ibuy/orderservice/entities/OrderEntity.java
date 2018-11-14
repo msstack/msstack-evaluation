@@ -27,6 +27,10 @@ public class OrderEntity extends Entity {
         return payment;
     }
 
+    public String getStatus() {
+        return status;
+    }
+
     private void apply(OrderCreatedEvent event) {
         this.orderId = event.getOrderId();
         this.customerId = event.getCustomerId();
@@ -51,6 +55,10 @@ public class OrderEntity extends Entity {
     public void apply(Event event) {
         if (event instanceof OrderCreatedEvent) {
             this.apply((OrderCreatedEvent) event);
+        } else if (event instanceof OrderAcceptedEvent) {
+            this.apply((OrderAcceptedEvent) event);
+        } else if (event instanceof OrderRejectedEvent) {
+            this.apply((OrderRejectedEvent) event);
         }
     }
 }
