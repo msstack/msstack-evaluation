@@ -5,36 +5,24 @@ import com.grydtech.msstack.core.types.messaging.Event;
 
 import java.util.UUID;
 
-public class OrderCreatedEvent extends Event<OrderEntity> {
+public class OrderRejectedEvent extends Event<OrderEntity> {
 
     private String orderId;
-    private String customerId;
-    private Double amount;
 
-    public OrderCreatedEvent() {
+    public OrderRejectedEvent() {
     }
 
-    public OrderCreatedEvent(String orderId, String customerId, Double amount) {
+    public OrderRejectedEvent(String orderId) {
         this.orderId = orderId;
-        this.customerId = customerId;
-        this.amount = amount;
     }
 
     public String getOrderId() {
         return orderId;
     }
 
-    public String getCustomerId() {
-        return customerId;
-    }
-
-    public Double getAmount() {
-        return amount;
-    }
-
     @Override
     public UUID getEntityId() {
-        return UUID.fromString(orderId);
+        return UUID.fromString(this.orderId);
     }
 
     @Override

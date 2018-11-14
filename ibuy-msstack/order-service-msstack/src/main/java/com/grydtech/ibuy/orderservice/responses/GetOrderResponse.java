@@ -5,15 +5,25 @@ import com.grydtech.msstack.core.types.messaging.Response;
 
 import java.util.UUID;
 
-public class OrderRejectedResponse extends Response<OrderEntity> {
-    private String orderId;
-    private Integer status;
-    private String message;
+public class GetOrderResponse extends Response<OrderEntity> {
 
-    public OrderRejectedResponse(String orderId, Integer status, String message) {
+    private String orderId;
+    private OrderEntity orderEntity;
+
+    public GetOrderResponse() {
+    }
+
+    public GetOrderResponse(String orderId, OrderEntity orderEntity) {
         this.orderId = orderId;
-        this.status = status;
-        this.message = message;
+        this.orderEntity = orderEntity;
+    }
+
+    public String getOrderId() {
+        return orderId;
+    }
+
+    public OrderEntity getOrderEntity() {
+        return orderEntity;
     }
 
     @Override
