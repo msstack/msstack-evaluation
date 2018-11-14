@@ -21,8 +21,6 @@ public class ValidateOrderHandler implements EventHandler<OrderEntity, OrderCrea
 
     @Override
     public void handle(OrderCreatedEvent orderCreatedEvent, Map map, UUID uuid, OrderEntity orderEntity) {
-        LOGGER.info("OrderCreatedEvent received with order id: " + orderCreatedEvent.getOrderId());
-
         if (orderCreatedEvent.getAmount() < 10000) {
             OrderAcceptedEvent orderAcceptedEvent = new OrderAcceptedEvent(orderCreatedEvent.getOrderId());
             orderAcceptedEvent.emit(uuid);
