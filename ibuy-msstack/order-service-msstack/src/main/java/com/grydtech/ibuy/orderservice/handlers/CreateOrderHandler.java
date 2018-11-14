@@ -17,11 +17,11 @@ public class CreateOrderHandler implements CommandHandler<OrderEntity, OrderCrea
 
     @Override
     public void handle(OrderCreateRequest orderCreateRequest, Map map, UUID uuid, OrderEntity orderEntity) {
-        LOGGER.info("OrderCreateRequest received with order id: " + orderCreateRequest.getOrderId());
+        LOGGER.info("order create request received for order id: " + orderCreateRequest.getOrderId());
         // add logic before order created event
-        OrderCreatedEvent orderCreatedEvent = new OrderCreatedEvent(orderCreateRequest.getOrderId(), orderCreateRequest.getCustomerId());
+        OrderCreatedEvent orderCreatedEvent = new OrderCreatedEvent(orderCreateRequest.getOrderId(), orderCreateRequest.getCustomerId(), orderCreateRequest.getAmount());
         orderCreatedEvent.emit(uuid);
         // add logic after order created event
-        LOGGER.info("OrderCreatedEvent emitted with order id: " + orderCreatedEvent.getOrderId());
+        LOGGER.info("order created for order id: " + orderCreatedEvent.getOrderId());
     }
 }

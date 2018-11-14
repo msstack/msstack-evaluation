@@ -1,6 +1,8 @@
 package com.grydtech.ibuy.orderservice.entities;
 
+import com.grydtech.ibuy.orderservice.events.OrderAcceptedEvent;
 import com.grydtech.ibuy.orderservice.events.OrderCreatedEvent;
+import com.grydtech.ibuy.orderservice.events.OrderRejectedEvent;
 import com.grydtech.msstack.core.types.Entity;
 import com.grydtech.msstack.core.types.messaging.Event;
 
@@ -11,6 +13,7 @@ public class OrderEntity extends Entity {
     private String orderId;
     private String customerId;
     private Double payment;
+    private String status;
 
     public String getOrderId() {
         return orderId;
@@ -27,7 +30,16 @@ public class OrderEntity extends Entity {
     private void apply(OrderCreatedEvent event) {
         this.orderId = event.getOrderId();
         this.customerId = event.getCustomerId();
-        this.payment = 0.00;
+        this.payment = event.getAmount();
+        this.status = "PENDING";
+    }
+
+    private void apply(OrderAcceptedEvent event) {
+        this.status = "ACCEPTED";
+    }
+
+    private void apply(OrderRejectedEvent event) {
+        this.status = "REJECTED";
     }
 
     @Override

@@ -6,15 +6,18 @@ import com.grydtech.msstack.core.types.messaging.Command;
 import java.util.UUID;
 
 public class OrderCreateRequest extends Command<OrderEntity> {
+
     private String orderId;
     private String customerId;
+    private Double amount;
 
     public OrderCreateRequest() {
     }
 
-    public OrderCreateRequest(String orderId, String customerId) {
+    public OrderCreateRequest(String orderId, String customerId, Double amount) {
         this.orderId = orderId;
         this.customerId = customerId;
+        this.amount = amount;
     }
 
     public String getOrderId() {
@@ -23,6 +26,10 @@ public class OrderCreateRequest extends Command<OrderEntity> {
 
     public String getCustomerId() {
         return customerId;
+    }
+
+    public Double getAmount() {
+        return amount;
     }
 
     @Override
