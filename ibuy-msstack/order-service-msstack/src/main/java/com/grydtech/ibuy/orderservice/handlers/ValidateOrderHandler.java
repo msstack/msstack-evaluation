@@ -5,16 +5,16 @@ import com.grydtech.ibuy.orderservice.events.OrderAcceptedEvent;
 import com.grydtech.ibuy.orderservice.events.OrderCreatedEvent;
 import com.grydtech.ibuy.orderservice.events.OrderRejectedEvent;
 import com.grydtech.msstack.core.handler.EventHandler;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
 
 import java.util.Map;
 import java.util.UUID;
+import java.util.logging.LogManager;
+import java.util.logging.Logger;
 
 @SuppressWarnings("unused")
 public class ValidateOrderHandler implements EventHandler<OrderEntity, OrderCreatedEvent> {
 
-    private static Logger LOGGER = LogManager.getLogger(ValidateOrderHandler.class);
+    private static Logger LOGGER = LogManager.getLogManager().getLogger(ValidateOrderHandler.class.getName());
 
     @Override
     public void handle(OrderCreatedEvent orderCreatedEvent, Map map, UUID uuid, OrderEntity orderEntity) {
