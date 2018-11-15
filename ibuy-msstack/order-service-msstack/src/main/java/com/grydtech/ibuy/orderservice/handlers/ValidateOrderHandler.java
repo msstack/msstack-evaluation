@@ -31,8 +31,8 @@ public class ValidateOrderHandler implements EventHandler<OrderEntity, OrderCrea
             OrderRejectedEvent orderRejectedEvent = new OrderRejectedEvent(orderCreatedEvent.getOrderId());
             orderRejectedEvent.emit(uuid);
 
-            LOGGER.warn("order rejected sent with order id: " + orderCreatedEvent.getOrderId());
-            DISTRIBUTED_LOGGER.warn("order rejected sent with order id: " + orderCreatedEvent.getOrderId());
+            LOGGER.warn("order rejected for order id: " + orderCreatedEvent.getOrderId());
+            DISTRIBUTED_LOGGER.warn("order rejected for order id: " + orderCreatedEvent.getOrderId());
         }
     }
 }
