@@ -26,6 +26,6 @@ public class GetOrderHandler implements QueryHandler<OrderEntity, GetOrderReques
         GetOrderResponse getOrderResponse = new GetOrderResponse(getOrderRequest.getOrderId(), orderEntity);
         getOrderResponse.emit(uuid);
 
-        LOGGER.info("get order response sent for order id: " + getOrderRequest.getOrderId());
+        LOGGER.info("order sent for order id: " + getOrderRequest.getOrderId());
     }
 }
